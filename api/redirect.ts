@@ -22,13 +22,14 @@ export default async function handler(req: Request) {
   }
 
   const importRoot = `${process.env.GIR_IMPORT_PATH}/${elem}`
+  const repoRoot = `${process.env.GIR_VCS_ROOT}/${elem}`
 
   return new Response(
     `<!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="go-import" content="${importRoot} ${process.env.GIR_VCS} ${process.env.GIR_VCS_ROOT}" />
+    <meta name="go-import" content="${importRoot} ${process.env.GIR_VCS} ${repoRoot}" />
     <meta http-equiv="refresh" content="0; url=https://pkg.go.dev/${importRoot}${suffix}" />
   </head>
   <body>
