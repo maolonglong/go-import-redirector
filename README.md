@@ -4,7 +4,7 @@ Edge function for a custom 'go get' domain.
 
 ## Demo
 
-<https://go.chensl.me/caller>
+<https://go.chensl.me/redglob>
 
 ## One-Click Deploy
 
@@ -15,5 +15,5 @@ Example environment variables:
 ```dosini
 GIR_IMPORT_PATH="go.chensl.me"
 GIR_VCS="git"
-GIR_VCS_ROOT="https://github.com/MaoLongLong"
+GIR_VCS_ROOT="https://github.com/maolonglong"
 ```

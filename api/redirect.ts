@@ -4,8 +4,17 @@ export const config = {
 
 export default async function handler(req: Request) {
   let { pathname } = new URL(req.url)
-  pathname = pathname.replace(/\/$/, '')
+  if (pathname === '/favicon.ico') {
+    return new Response('404 page not found', {
+      status: 404,
+      headers: {
+        'content-type': 'text/plain; charset=utf-8',
+        'x-content-type-options': 'nosniff',
+      },
+    })
+  }
 
+  pathname = pathname.replace(/\/$/, '')
   if (pathname === '') {
     return Response.redirect(
       `https://pkg.go.dev/${process.env.GIR_IMPORT_PATH}`,
@@ -40,6 +49,7 @@ export default async function handler(req: Request) {
     {
       headers: {
         'content-type': 'text/html; charset=utf-8',
+        'x-content-type-options': 'nosniff',
         'cache-control': 'max-age=0, s-maxage=86400',
       },
     }
